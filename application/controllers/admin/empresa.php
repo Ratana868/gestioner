@@ -9,7 +9,7 @@ class Empresa extends MY_Controller {
         $this->load->model("provincias");
         $this->load->model("localidades");
 
-        //$this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
          if($this->auth->is_logged() == FALSE)
          {
              redirect(base_url('admin/login'));            
@@ -76,9 +76,6 @@ class Empresa extends MY_Controller {
 
 	public function editar($id_empresa = '')
 	{
-
-
-
 		$empresa = $this->empresas->get_emp($id_empresa);
         $prov = $empresa->id_provincia;
 
@@ -112,11 +109,6 @@ class Empresa extends MY_Controller {
         $data['provincias'] = $this->provincias->read('id, provincia', 'provincia', 'ASC');
         $data['localid'] = $this->localidades->get_provincia('localidad', 'ASC', $prov);
 
-        
-
-
-
-        //print_r(expression)
         $this->display("admin/empresas/editar", $data);
 
 	}
@@ -129,5 +121,16 @@ class Empresa extends MY_Controller {
         echo json_encode($result);
 
 	}
+
+    public function panel($id_empresa)
+    {
+        $emp = $this->empresas->get_emp($id_empresa);
+        $data = object2array($emp);
+        $data['active'] = "empresa";
+        $data['sub_active'] = "";
+
+        $this->display("admin/empresas/panel", $data);
+    }
+
 
 }

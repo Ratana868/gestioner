@@ -38,6 +38,13 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">LOGIN</p>
+                  <? if(validation_errors()) { ?>
+                  <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i> Error!</h4>
+                    Por favor, verifique los campos requeridos o con error e intente nuevamente.
+                  </div>
+                  <? } ?>
 
           <?=form_open(base_url().'admin/login/ingreso')?>
             <div class="form-group has-feedback">

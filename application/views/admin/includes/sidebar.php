@@ -29,14 +29,19 @@
             <span><Charts>Empresas</Charts></span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="treeview <?= ($active == "programa") ? "active" : "" ?>">
           <a href="#">
             <i class="fa fa-tasks"></i>
             <span><Charts>Programas</Charts></span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> Programa de Mantenimiento</a></li>
+            <li class="<?= ($sub_active == "seguridad") ? "active" : "" ?>">
+              <a href="#"><i class="fa fa-circle-o"></i>Seguridad<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                  <li class="<?= ($sub_active == "tipos_programa") ? "active" : "" ?>"><a href="<?php echo base_url() .'admin/tipos_programas'?>">Tipos de Programa</a></li>
+              </ul>
+            </li>
             <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Plan de Capacitación</a></li>
           </ul>
         </li>

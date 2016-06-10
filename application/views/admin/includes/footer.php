@@ -17,10 +17,12 @@
 <script src="<?php echo base_url() .'assets/plugins/daterangepicker/daterangepicker.js'?>"></script>
 <!-- bootstrap datepicker -->
 <script src="<?php echo base_url() .'assets/plugins/datepicker/bootstrap-datepicker.js'?>"></script>
+<script src="<?php echo base_url() .'assets/plugins/datepicker/locales/bootstrap-datepicker.es.js'?>"></script>
 <!-- bootstrap color picker -->
 <script src="<?php echo base_url() .'assets/plugins/colorpicker/bootstrap-colorpicker.min.js'?>"></script>
 <!-- bootstrap time picker -->
 <script src="<?php echo base_url() .'assets/plugins/timepicker/bootstrap-timepicker.min.js'?>"></script>
+
 <!-- SlimScroll 1.3.0 -->
 <script src="<?php echo base_url() .'assets/plugins/slimScroll/jquery.slimscroll.min.js'?>"></script>
 <!-- iCheck 1.0.1 -->
@@ -98,10 +100,14 @@
     $(".timepicker").timepicker({
       showInputs: false
     });
+
+    $("#calendar").datepicker({
+      language: 'es'
+    });
   });
 
 
-       function get_localidad(id_provincia) {
+  function get_localidad(id_provincia) {
            if (id_provincia != "") {
                $.ajax({
                    type: "POST",
@@ -115,7 +121,7 @@
            } else {
                 $("#field_localidad").css("display", "none");
            }
-       }
+  }
   function eliminar_empresa() {
       $.ajax({
           url: "<?= base_url(); ?>admin/empresa/eliminar/" + $('#id_empresa').val(),
@@ -133,9 +139,22 @@
           window.top.location = "<?= base_url(); ?>admin/usuario";
       });
   }
+  function eliminar_tipo_programa() {
+      $.ajax({
+          url: "<?= base_url(); ?>admin/tipos_programas/eliminar/" + $('#id_programa').val(),
+          dataType: 'json'
+      }).done(function(data) {
+          window.top.location = "<?= base_url(); ?>admin/tipos_programas";
+      });
+  }
   $(document).on("click", ".eliminarUsuario", function () {
       $('#id_usuario').val($(this).data('id'));
       $('#nombre').html($(this).data('nombre'));
+  });
+
+  $(document).on("click", ".eliminarTipoPrograma", function () {
+      $('#id_programa').val($(this).data('id'));
+      $('#programa').html($(this).data('tipo'));
   });
 
 

@@ -33,11 +33,11 @@
                     <thead>
                       <tr>
                         <th>Nombre</th>
+                        <th>Panel</th>
+                        <th>Programas de seguridad</th>
                         <th>Responsable General</th>
-                        <th>CUIT</th>
                         <th>Localidad</th>
                         <th>Provincia</th>
-                        <th>Dirección</th>
                         <th>Acciones</th>           
                                       
                       </tr>
@@ -48,11 +48,12 @@
                           foreach($empresas as $data){ ?>
                             <tr>
                                 <td><?php echo $data->nombre; ?></td>
+                                <th><a type="button" class="btn btn-warning" href="<?php echo base_url() .'admin/empresa/panel/'. $data->id ?>">Administrar</a></th>
+                                <th><a type="button" class="btn btn-primary" href="<?php echo base_url() .'admin/programas/'. $data->id ?>">Ver</a></th>
                                 <td><?php echo $data->responsable; ?></td>
-                                <td><?php echo $data->cuit; ?></td>
                                 <td><?php echo $data->localidad; ?></td>
                                 <td><?php echo $data->provincia; ?></td>
-                                <td><?php echo $data->direccion; ?></td>
+
                                 <td>
                                     <a href="<?php echo base_url() .'admin/empresa/editar/'. $data->id ?>" class="btn btn-flat btn-success btn-xs">Editar</a>
                                     <button class="btn btn-flat btn-danger btn-xs eliminarEmpresa" data-toggle="modal" data-id="<?= $data->id ?>" data-nombre="<?= $data->nombre ?>" data-target="#eliminar">Borrar</a>
