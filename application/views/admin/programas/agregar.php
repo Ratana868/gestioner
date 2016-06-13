@@ -1,0 +1,86 @@
+<div class="content-wrapper">
+	<section class="content-header">
+
+	</section>
+	<section class="content">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="box box-primary">
+		          <div class="box-header with-border">
+		            <h3 class="box-title">Agregar Programa de seguridad</h3>
+		          </div><!-- /.box-header -->
+
+		          <?
+		            //$url= base_url().'sistemas/usuario/agregar';
+		            $form = array('class' => 'form-horizontal');
+		           ?>
+		          <!-- form start -->
+		          <?=form_open(base_url().'admin/programas/agregar/'. $id ,$form)?>
+		          
+		            <div class="box-body">
+		              <? if(validation_errors()) { ?>
+		              <div class="alert alert-danger alert-dismissable">
+		                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+		                <h4><i class="icon fa fa-ban"></i> Error!</h4>
+		                Por favor, verifique los campos requeridos o con error e intente nuevamente.
+		              </div>
+		              <? } ?>
+		              <div class="form-group <?= form_error('fecha') ? 'has-error' : ''?>">
+		                <label for="fecha" class="col-sm-2 control-label">Fecha de alta</label>
+		                <div class="col-sm-10">
+		                  <input id="fech" class="form-control" type="text" name="fecha" value="<?= set_value('fecha') ?>" data-date-format="dd/mm/yyyy">
+		                </div>
+		              </div>
+
+		              <div class="form-group <?= form_error('id_empresa') ? 'has-error' : ''?>">
+		                <label for="tipo" class="col-sm-2 control-label">Empresa</label>
+		                <div class="col-sm-10">
+		                  <input type="text" name="empresa" class="form-control" value="<?= set_value('empresa',$nombre ) ?>" readonly="readonly">
+		                </div>
+		              </div>
+		              <div class="form-group <?= form_error('nom') ? 'has-error' : ''?>">
+		                <label for="nom" class="col-sm-2 control-label">Nombre Programa</label>
+		                <div class="col-sm-10">
+		                  <input type="text" name="nom" class="form-control" value="<?= set_value('nom') ?>">
+		                </div>
+		              </div>
+		              <div class="form-group <?= form_error('id_tipo') ? 'has-error' : ''?>">
+			                <label for="id_tipo" class="col-sm-2 control-label">Tipoo</label>
+			                <div class="col-sm-10">
+			                  <select id="id_tipo" name="id_tipo" class="form-control">
+			                    <option value="" <?= set_select('id_tipo', ''); ?>>Seleccionar Tipo</option>
+			                    <? foreach($tipos as $t) { ?>
+			                    <option value="<?= $t->id ?>" <?= set_select('id_tipo', $t->id); ?>><?= $t->tipo ?></option>
+			                    <? } ?>
+			                  </select>
+			                </div>
+              		  </div>
+		              <div class="form-group <?= form_error('descripcion') ? 'has-error' : ''?>">
+		                <label for="tipo" class="col-sm-2 control-label">Descripcion</label>
+		                <div class="col-sm-10">
+		                	<textarea name="descripcion" placeholder="Descripcion" rows="3" class="form-control"><?= set_value('descripcion') ?></textarea>
+		                </div>
+		              </div>
+
+
+		            </div>
+		            <div class="box-footer">
+		              <div class="row">
+		                <div class="col-md-4 col-md-offset-2">
+		                    <a href="<?php echo base_url() .'admin/tipos_programas'?>" class="btn btn-warning">Cancelar</a>
+		                    <button type="submit" class="btn btn-primary">Guardar</button>
+		                </div>
+		              </div>  
+
+		            <?=form_close()?>
+
+		            </div>
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+</div>

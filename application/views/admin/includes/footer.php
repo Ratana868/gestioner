@@ -104,6 +104,11 @@
     $("#calendar").datepicker({
       language: 'es'
     });
+
+    $('#fech').datepicker({
+      autoclose: true,
+      language: 'es'
+    });
   });
 
 
