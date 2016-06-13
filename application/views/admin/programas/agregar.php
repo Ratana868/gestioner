@@ -45,23 +45,33 @@
 		                </div>
 		              </div>
 		              <div class="form-group <?= form_error('id_tipo') ? 'has-error' : ''?>">
-			                <label for="id_tipo" class="col-sm-2 control-label">Tipoo</label>
+			                <label for="id_tipo" class="col-sm-2 control-label">Tipo</label>
 			                <div class="col-sm-10">
 			                  <select id="id_tipo" name="id_tipo" class="form-control">
-			                    <option value="" <?= set_select('id_tipo', ''); ?>>Seleccionar Tipo</option>
+			                    <option value="" <?= set_select('id_tipo', ''); ?>>Seleccionar Tipo...</option>
 			                    <? foreach($tipos as $t) { ?>
-			                    <option value="<?= $t->id ?>" <?= set_select('id_tipo', $t->id); ?>><?= $t->tipo ?></option>
+			                    <option value="<?= $t->id ?>" <?= set_select('id_tipo', $t->id); ?>><?= strtoupper($t->tipo) ?></option>
 			                    <? } ?>
 			                  </select>
 			                </div>
               		  </div>
-		              <div class="form-group <?= form_error('descripcion') ? 'has-error' : ''?>">
-		                <label for="tipo" class="col-sm-2 control-label">Descripcion</label>
+		              <div class="form-group <?= form_error('acciones') ? 'has-error' : ''?>">
+		                <label for="acciones" class="col-sm-2 control-label">Acciones</label>
 		                <div class="col-sm-10">
-		                	<textarea name="descripcion" placeholder="Descripcion" rows="3" class="form-control"><?= set_value('descripcion') ?></textarea>
+		                	<textarea name="acciones" placeholder="Descripcion" rows="3" class="form-control"><?= set_value('acciones') ?></textarea>
 		                </div>
 		              </div>
-
+		              <div class="form-group <?= form_error('id_frecuencia') ? 'has-error' : ''?>">
+			                <label for="id_frecuencia" class="col-sm-2 control-label">Frecuencia</label>
+			                <div class="col-sm-10">
+			                  <select id="id_frecuencia" name="id_frecuencia" class="form-control">
+			                    <option value="" <?= set_select('id_frecuencia', ''); ?>>Seleccionar Frecuencia...</option>
+			                    <? foreach($frecuencias as $f) { ?>
+			                    <option value="<?= $f->id ?>" <?= set_select('id_frecuencia', $f->id); ?>><?= strtoupper($f->frecuencia) ?></option>
+			                    <? } ?>
+			                  </select>
+			                </div>
+              		  </div>
 
 		            </div>
 		            <div class="box-footer">

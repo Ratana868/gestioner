@@ -9,6 +9,7 @@ class Programas extends MY_Controller {
         $this->load->model("empresas");
         $this->load->model("tipos_prog");
         $this->load->model("program");
+        $this->load->model("frecuencias");
          if($this->auth->is_logged() == FALSE)
          {
              redirect(base_url('admin/login'));            
@@ -41,7 +42,8 @@ class Programas extends MY_Controller {
         $data['active'] = "programa";
         $data['sub_active'] = "seguridad";
 
-        $data['tipos'] = $this->tipos_prog->read("id, tipo", "id","ASC");  
+        $data['tipos'] = $this->tipos_prog->read("id, tipo", "tipo","ASC");  
+        $data['frecuencias'] = $this->frecuencias->read("id, frecuencia", "id","ASC");
 
 
         $this->display('admin/programas/agregar', $data);
