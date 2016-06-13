@@ -33,15 +33,9 @@
 		              </div>
 
 		              <div class="form-group <?= form_error('id_empresa') ? 'has-error' : ''?>">
-		                <label for="tipo" class="col-sm-2 control-label">Empresa</label>
+		                <label for="empresa" class="col-sm-2 control-label">Empresa</label>
 		                <div class="col-sm-10">
 		                  <input type="text" name="empresa" class="form-control" value="<?= set_value('empresa',$nombre ) ?>" readonly="readonly">
-		                </div>
-		              </div>
-		              <div class="form-group <?= form_error('nom') ? 'has-error' : ''?>">
-		                <label for="nom" class="col-sm-2 control-label">Nombre Programa</label>
-		                <div class="col-sm-10">
-		                  <input type="text" name="nom" class="form-control" value="<?= set_value('nom') ?>">
 		                </div>
 		              </div>
 		              <div class="form-group <?= form_error('id_tipo') ? 'has-error' : ''?>">
@@ -55,10 +49,16 @@
 			                  </select>
 			                </div>
               		  </div>
+		              <div class="form-group <?= form_error('responsable') ? 'has-error' : ''?>">
+		                <label for="responsable" class="col-sm-2 control-label">Responsable</label>
+		                <div class="col-sm-10">
+		                  <input type="text" name="responsable" class="form-control" value="<?= set_value('responsable') ?>">
+		                </div>
+		              </div>
 		              <div class="form-group <?= form_error('acciones') ? 'has-error' : ''?>">
 		                <label for="acciones" class="col-sm-2 control-label">Acciones</label>
 		                <div class="col-sm-10">
-		                	<textarea name="acciones" placeholder="Descripcion" rows="3" class="form-control"><?= set_value('acciones') ?></textarea>
+		                	<textarea name="acciones" placeholder="Descripcion..." rows="3" class="form-control"><?= set_value('acciones') ?></textarea>
 		                </div>
 		              </div>
 		              <div class="form-group <?= form_error('id_frecuencia') ? 'has-error' : ''?>">
@@ -72,12 +72,18 @@
 			                  </select>
 			                </div>
               		  </div>
+		              <div class="form-group <?= form_error('observaciones') ? 'has-error' : ''?>">
+		                <label for="observaciones" class="col-sm-2 control-label">Observaciones</label>
+		                <div class="col-sm-10">
+		                	<textarea name="observaciones" placeholder="Observaciones..." rows="3" class="form-control"><?= set_value('observaciones') ?></textarea>
+		                </div>
+		              </div>
 
 		            </div>
 		            <div class="box-footer">
 		              <div class="row">
 		                <div class="col-md-4 col-md-offset-2">
-		                    <a href="<?php echo base_url() .'admin/tipos_programas'?>" class="btn btn-warning">Cancelar</a>
+		                    <a href="<?php echo base_url() .'admin/programas/listado/'. $id ?>" class="btn btn-warning">Cancelar</a>
 		                    <button type="submit" class="btn btn-primary">Guardar</button>
 		                </div>
 		              </div>  

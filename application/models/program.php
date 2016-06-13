@@ -10,15 +10,15 @@ Class Program extends MY_Model
 
   public function get_prog_emp($id_empresa)
   {
-  	    $query = "SELECT a.*, b.frecuencia  FROM $this->table a
+  	    $consulta = "SELECT a.*, b.frecuencia, c.tipo  FROM $this->table a
   	    		  inner join frecuencia b on a.id_frecuencia=b.id
+              inner join tipos_programa c on c.id=a.id_tipo
                   WHERE a.id_empresa = $id_empresa";
-        
-        $query = $this->db->query($query);
+        $query = $this->db->query($consulta);
 
         if (!empty($query) AND $query->num_rows() > 0)
         {
-            $result = $query->row();
+            $result = $query->result();
             $query->free_result();
 
             return $result;

@@ -15,12 +15,10 @@
 				 			<thead>
 				 				<tr>
 				 					<th>#</th>
-				 					<th>Fecha</th>
-				 					<th>Nombre</th>
+				 					<th>Fecha</th>				 					
 				 					<th>Tipo</th>
 				 					<th>Frecuencia</th>
-				 					<th>Avance</th>
-				 					
+				 					<th>Responsable</th>				 					
 				 				</tr>
 				 			</thead>
 				 			<tbody>
@@ -28,16 +26,12 @@
 		                      if(!empty($program_seguridad)){ 
 		                          foreach($program_seguridad as $data){ ?>
 		                            <tr>
-		                            	<td><?php echo $data->id ?></td>
-		                                <td><?php echo $data->nombre; ?></td>
-		                                <th><a type="button" class="btn btn-warning" href="<?php echo base_url() .'admin/empresa/panel/'. $data->id ?>">Administrar</a></th>
-
-		                                <td><?php echo $data->responsable; ?></td>
-		                                <td><?php echo $data->id_tipo; ?></td>
-		                                <td><?php echo $data->provincia; ?></td>
-                  		                <th><a type="button" class="btn btn-primary" href="<?php echo base_url() .'admin/programas/ver/'. $data->id ?>">Ver</a></th>
-
-		                            </tr>
+		                            	<td><?php echo $data->id ?></td>		                                
+		                                <td><?php echo $data->fecha ?></td>
+		                                <td><?php echo $data->tipo ?></td>
+		                                <td><?php echo $data->frecuencia; ?></td>
+		                                <td><?php echo $data->responsable; ?></td>                       
+           		                    </tr>
 
 		                       <?php   
 		                   			} 
