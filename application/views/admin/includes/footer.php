@@ -34,7 +34,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() .'assets/dist/js/demo.js'?>"></script>
 <!-- Page script -->
+<script src="<?php echo base_url() .'assets/js/bootstrap-notify.min.js'?>"></script>
 <script src="<?php echo base_url() .'assets/js/empresa.js'?>"></script>
+<script src="<?php echo base_url() .'assets/js/notificar.js'?>"></script>
 <script>
   $(function () {
     //Initialize Select2 Elements
@@ -111,7 +113,7 @@
     });
   });
 
-
+  var url_pagina = "<?= base_url(); ?>";
   function get_localidad(id_provincia) {
            if (id_provincia != "") {
                $.ajax({
@@ -161,6 +163,28 @@
       $('#id_programa').val($(this).data('id'));
       $('#programa').html($(this).data('tipo'));
   });
+
+
+    $("#programar-capacitacion").submit(function(event){
+      //$('#excavador').hide();
+      $.ajax({
+          url: "<?= base_url(); ?>admin/capacitaciones/agregar_programacion/" + $('#id_capacitacion').val(),
+          type: "POST",
+          data: $("#programar-capacitacion").serialize(),
+          error: function(){
+          alert("Error envio de datos");
+          },
+          success:function(data){
+            //window.location.reload(true);
+            window.top.location = '<?= base_url(); ?>admin/capacitaciones/programar/'+ $('#id_empresa').val() + '/'+$('#id_capacitacion').val();
+
+            //window.top.location = '/localidad/panel/'+ $('#id_localidad').val();
+            
+          }
+      });
+     event.preventDefault();
+     return false;
+    });
 
 
 </script>

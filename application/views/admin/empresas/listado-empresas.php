@@ -33,8 +33,9 @@
                     <thead>
                       <tr>
                         <th>Nombre</th>
-                        <th>Panel</th>
+                        <th><i class="fa fa-calendar"></i></th>
                         <th>Programas de seguridad</th>
+                        <th>Capacitaciones</th>
                         <th>Responsable General</th>
                         <th>Localidad</th>
                         <th>Provincia</th>
@@ -48,8 +49,9 @@
                           foreach($empresas as $data){ ?>
                             <tr>
                                 <td><?php echo $data->nombre; ?></td>
-                                <th><a type="button" class="btn btn-warning" href="<?php echo base_url() .'admin/empresa/panel/'. $data->id ?>">Administrar</a></th>
-                                <th><a type="button" class="btn btn-primary" href="<?php echo base_url() .'admin/programas/listado/'. $data->id ?>">Ver</a></th>
+                                <th><a type="button" class="btn btn-warning" href="<?php echo base_url() .'admin/empresa/panel/'. $data->id ?>">Calendario</a></th>
+                                <th><a type="button" class="btn btn-primary" href="<?php echo base_url() .'admin/programas/listado/'. $data->id ?>">Listado</a></th>
+                                <th><a type="button" class="btn btn-success" href="<?php echo base_url() .'admin/capacitaciones/listado/'. $data->id ?>">Listado</a></th>
                                 <td><?php echo $data->responsable; ?></td>
                                 <td><?php echo $data->localidad; ?></td>
                                 <td><?php echo $data->provincia; ?></td>

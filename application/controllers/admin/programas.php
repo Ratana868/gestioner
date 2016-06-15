@@ -5,7 +5,7 @@ class Programas extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
         $this->load->model("empresas");
         $this->load->model("tipos_prog");
         $this->load->model("program");

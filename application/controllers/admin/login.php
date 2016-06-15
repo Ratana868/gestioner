@@ -60,7 +60,7 @@ class Login extends MY_Controller
                     );      
                     //print_r($data);
                     $this->session->set_userdata($data);
-                    redirect(base_url().'admin/inicio');
+                    redirect(base_url().'admin/empresa');
                 }
                 else
                 {
